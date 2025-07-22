@@ -40,26 +40,36 @@ public class Panel extends JPanel implements ActionListener {
         drawAnimatedCompanion((Graphics2D) g);
     }
 
-    private void drawAnimatedCompanion(Graphics2D g2d) {
-        // Floating animation
-        if (floatingUp) {
-            floatOffset--;
-            if (floatOffset < -5) floatingUp = false;
-        } else {
-            floatOffset++;
-            if (floatOffset > 5) floatingUp = true;
-        }
-
-       int scale = 3;
-int spriteWidth = frames[frameIndex].getWidth() * scale;
-int spriteHeight = frames[frameIndex].getHeight() * scale;
-
-int x = (getWidth() - spriteWidth) / 2;
-int y = (getHeight() - spriteHeight) / 2 + floatOffset;
-
-g2d.drawImage(frames[frameIndex], x, y, spriteWidth, spriteHeight, null);
-
+   private void drawAnimatedCompanion(Graphics2D g2d) {
+    // Floating animation
+    if (floatingUp) {
+        floatOffset--;
+        if (floatOffset < -5) floatingUp = false;
+    } else {
+        floatOffset++;
+        if (floatOffset > 5) floatingUp = true;
     }
+
+    int scale = 3;
+    int spriteWidth = frames[frameIndex].getWidth() * scale;
+    int spriteHeight = frames[frameIndex].getHeight() * scale;
+
+    int x = (getWidth() - spriteWidth) / 2;
+    int y = (getHeight() - spriteHeight) / 2 + floatOffset;
+
+    g2d.drawImage(frames[frameIndex], x, y, spriteWidth, spriteHeight, null);
+
+    // Message text
+    String message = "Happy..?";
+    g2d.setColor(Color.WHITE);
+    g2d.setFont(new Font("Arial", Font.BOLD, 24));
+    FontMetrics fm = g2d.getFontMetrics();
+    int textWidth = fm.stringWidth(message);
+    int textX = (getWidth() - textWidth) / 2;
+    int textY = y + spriteHeight + 30;
+    g2d.drawString(message, textX, textY);
+}
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
