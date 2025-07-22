@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Panel extends JPanel implements ActionListener {
 
-    private Emotion currentEmotion = Emotion.HAPPY;
+    private Emotion currentEmotion = Emotion.random();
     private final Timer timer;
     private long lastUpdate = System.currentTimeMillis();
     private final Random rand = new Random();
