@@ -52,8 +52,8 @@ public class Panel extends JPanel implements ActionListener {
 
         int x = getWidth() / 2 - 32;
         int y = getHeight() / 2 - 32 + floatOffset;
-
-        g2d.drawImage(frames[frameIndex], x, y, null);
+        int scale = 3;
+        g2d.drawImage(frames[frameIndex], x, y, 64*scale,64*scale,null);
     }
 
     @Override
