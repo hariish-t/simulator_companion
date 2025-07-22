@@ -24,7 +24,7 @@ public class Panel extends JPanel implements ActionListener {
 
     private void loadSpriteSheet() {
         try {
-            spriteSheet = ImageIO.read(new File("image.png"));
+            spriteSheet = ImageIO.read(new File("gimg.png"));
             frames = new BufferedImage[10]; // 10 frames
             for (int i = 0; i < 10; i++) {
                 frames[i] = spriteSheet.getSubimage(i * 64, 0, 64, 64);
