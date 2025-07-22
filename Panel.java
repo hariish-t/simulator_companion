@@ -50,8 +50,12 @@ public class Panel extends JPanel implements ActionListener {
             if (floatOffset > 5) floatingUp = true;
         }
 
-        int x = getWidth() / 2 - 32;
-        int y = getHeight() / 2 - 32 + floatOffset;
+        int spriteWidth = frames[frameIndex].getWidth();
+int spriteHeight = frames[frameIndex].getHeight();
+
+int x = (getWidth() - spriteWidth) / 2;
+int y = (getHeight() - spriteHeight) / 2 + floatOffset;
+
         int scale = 3;
         g2d.drawImage(frames[frameIndex], x, y, 64*scale,64*scale,null);
     }
