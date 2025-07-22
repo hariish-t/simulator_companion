@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
-public class GhostPanel extends JPanel implements ActionListener {
+public class Panel extends JPanel implements ActionListener {
 
     private Emotion currentEmotion = Emotion.HAPPY;
     private final Timer timer;
@@ -13,7 +13,7 @@ public class GhostPanel extends JPanel implements ActionListener {
     private int floatOffset = 0;
     private boolean floatingUp = true;
 
-    public GhostPanel() {
+    public Panel() {
         setPreferredSize(new Dimension(500, 300));
         setBackground(Color.BLACK);
         timer = new Timer(100, this); // refresh every 100ms
